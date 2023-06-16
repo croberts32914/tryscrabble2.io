@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Scrabble Score Calculator</title>
+    <style>
+        body {
+            background-image: url("path/to/your/image.jpg");
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+        #result {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <h1>Scrabble Score Calculator</h1>
+    <form id="scrabbleForm">
+        <label for="word1">Player 1:</label>
+        <input type="text" name="word1" id="word1" required>
+        <br>
+        <label for="word2">Player 2:</label>
+        <input type="text" name="word2" id="word2" required>
+        <br>
+        <input type="submit" value="Calculate">
+    </form>
+
+    <div id="result">
+        <h2>Scrabble Score Result</h2>
+        <p>Player 1 word: <span id="word1Result"></span></p>
+        <p>Player 1 score: <span id="score1Result"></span></p>
+        <p>Player 1 validity: <span id="valid1Result"></span></p>
+        <p>Player 1 message: <span id="message1Result"></span></p>
+        <br>
+        <p>Player 2 word: <span id="word2Result"></span></p>
+        <p>Player 2 score: <span id="score2Result"></span></p>
+        <p>Player 2 validity: <span id="valid2Result"></span></p>
+        <p>Player 2 message: <span id="message2Result"></span></p>
+        <p><a href="#" onclick="return resetForm()">Go back</a></p>
+    </div>
+
+    <script>
+        // Points assigned to each letter of the alphabet
+        const POINTS = [1, 3, 3, 2, 1, 4, 2, 4, 1, 8, 5, 1, 3, 1, 1, 3, 10, 1, 1, 1, 1, 4, 4, 8, 4, 10];
+
+        function computeScore(word) {
+            // Your computeScore() function implementation
+        }
+
+        function isWordValid(word, dictionary) {
+            // Your isWordValid() function implementation
+        }
+
+        function getDictionary(callback) {
+            // Your getDictionary() function implementation
+        }
+
+        function showResult(event) {
+            event.preventDefault();
+            // Rest of your showResult() function implementation
+        }
+
+        function resetForm() {
+            // Your resetForm() function implementation
+        }
+
+        document.getElementById("scrabbleForm").addEventListener("submit", showResult);
+    </script>
+</body>
+</html>
