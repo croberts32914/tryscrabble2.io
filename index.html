@@ -16,10 +16,23 @@
         }
         #result {
             display: none;
-            background-color: #ffffff;
-            padding: 20px;
+            background-color: #ffebcd;
+            padding: 50px;
             text-align: center;
+            margin-top: 30px;
         }
+        h1 {
+            background-color: #a67b5b;
+        padding: 50px;
+        }
+        #scrabbleForm {
+        background-color: #deb887;
+        padding: 50px;
+        text-align: center;
+        margin-top: 30px;
+    }
+
+
     </style>
 </head>
 <body>
@@ -107,12 +120,12 @@
             document.getElementById("word1Result").textContent = word1;
             document.getElementById("score1Result").textContent = score1;
             document.getElementById("valid1Result").textContent = score1 === 0 ? "Invalid" : "Valid";
-            document.getElementById("message1Result").textContent = score1 === 0 ? "INVALID WORD!" : (score1 > 0 ? "You scored!" : "");
+            document.getElementById("message1Result").textContent = score1 === 0 ? "INVALID WORD!" : (score1 > 0 ? "YOU SCORED!" : "");
 
             document.getElementById("word2Result").textContent = word2;
             document.getElementById("score2Result").textContent = score2;
             document.getElementById("valid2Result").textContent = score2 === 0 ? "Invalid" : "Valid";
-            document.getElementById("message2Result").textContent = score2 === 0 ? "INVALID WORD!" : (score2 > 0 ? "Way to go, every point counts!" : "");
+            document.getElementById("message2Result").textContent = score2 === 0 ? "INVALID WORD!" : (score2 > 0 ? "YOU SCORED!" : "");
 
             document.getElementById("result").style.display = "block";
         }
