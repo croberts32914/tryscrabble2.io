@@ -4,7 +4,7 @@
     <title>Scrabble Score Calculator</title>
     <style>
         body {
-            background-image: url("tryscrabble2.png");
+            background-image: url("path/to/your/image.jpg");
             background-size: cover;
             background-repeat: no-repeat;
             display: flex;
@@ -20,32 +20,21 @@
             padding: 20px;
             text-align: center;
         }
-        #title {
-            text-align: center;
-        }
-        #scoreContainer {
-            display: flex;
-            justify-content: center;
-        }
-        .score {
-            margin: 10px;
-        }
     </style>
 </head>
 <body>
-    <div id="title">
+    <div>
         <h1>Scrabble Score Calculator</h1>
+        <form id="scrabbleForm">
+            <label for="word1">Player 1:</label>
+            <input type="text" name="word1" id="word1" required>
+            <br>
+            <label for="word2">Player 2:</label>
+            <input type="text" name="word2" id="word2" required>
+            <br>
+            <input type="submit" value="Calculate">
+        </form>
     </div>
-
-    <form id="scrabbleForm">
-        <label for="word1">Player 1:</label>
-        <input type="text" name="word1" id="word1" required>
-        <br>
-        <label for="word2">Player 2:</label>
-        <input type="text" name="word2" id="word2" required>
-        <br>
-        <input type="submit" value="Calculate">
-    </form>
 
     <div id="result">
         <h2>Scrabble Score Result</h2>
