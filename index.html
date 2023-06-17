@@ -4,7 +4,7 @@
     <title>Scrabble Score Calculator</title>
     <style>
         body {
-            background-image: url("tryscrabble2.png");
+            background-image: url("path/to/your/image.jpg");
             background-size: cover;
             background-repeat: no-repeat;
             display: flex;
@@ -55,24 +55,73 @@
         const POINTS = [1, 3, 3, 2, 1, 4, 2, 4, 1, 8, 5, 1, 3, 1, 1, 3, 10, 1, 1, 1, 1, 4, 4, 8, 4, 10];
 
         function computeScore(word) {
-            // Your computeScore() function implementation
+            if (!/^[a-zA-Z]+$/.test(word)) {
+                return 0;
+            }
+
+            const dictionary = getDictionary();
+
+            if (!isWordValid(word, dictionary)) {
+                return 0;
+            }
+
+            const score = Array.from(word.toLowerCase()).reduce((total, char) => {
+                const charCode = char.charCodeAt(0);
+                const index = charCode - 97;
+                return total + POINTS[index];
+            }, 0);
+
+            return score;
         }
 
         function isWordValid(word, dictionary) {
             // Your isWordValid() function implementation
+            return dictionary.includes(word.toLowerCase());
         }
 
-        function getDictionary(callback) {
+        function getDictionary() {
             // Your getDictionary() function implementation
+            // Replace the URL with the correct file path or API endpoint to fetch the dictionary words
+            const url = "path/to/your/dictionary.txt";
+
+            const xhr = new XMLHttpRequest();
+            xhr.open("GET", url, false);
+            xhr.send();
+
+            if (xhr.readyState === 4 && xhr.status === 200) {
+                return xhr.responseText.split("\n");
+            } else {
+                return [];
+            }
         }
 
         function showResult(event) {
             event.preventDefault();
-            // Rest of your showResult() function implementation
+
+            const word1 = document.getElementById("word1").value;
+            const word2 = document.getElementById("word2").value;
+
+            const score1 = computeScore(word1);
+            const score2 = computeScore(word2);
+
+            document.getElementById("word1Result").textContent = word1;
+            document.getElementById("score1Result").textContent = score1;
+            document.getElementById("valid1Result").textContent = score1 === 0 ? "Invalid" : "Valid";
+            document.getElementById("message1Result").textContent = score1 === 0 ? "Invalid word" : "";
+
+            document.getElementById("word2Result").textContent = word2;
+            document.getElementById("score2Result").textContent = score2;
+            document.getElementById("valid2Result").textContent = score2 === 0 ? "Invalid" : "Valid";
+            document.getElementById("message2Result").textContent = score2 === 0 ? "Invalid word" : "";
+
+            document.getElementById("result").style.display = "block";
         }
 
         function resetForm() {
-            // Your resetForm() function implementation
+            document.getElementById("result").style.display = "none";
+            document.getElementById("word1").value = "";
+            document.getElementById("word2").value = "";
+            return false;
         }
 
         document.getElementById("scrabbleForm").addEventListener("submit", showResult);
