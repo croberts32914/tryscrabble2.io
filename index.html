@@ -4,7 +4,7 @@
     <title>Scrabble Score Calculator</title>
     <style>
         body {
-            background-image: url("path/to/your/image.jpg");
+            background-image: url("tryscrabble2.png");
             background-size: cover;
             background-repeat: no-repeat;
             display: flex;
@@ -82,7 +82,7 @@
         function getDictionary() {
             // Your getDictionary() function implementation
             // Replace the URL with the correct file path or API endpoint to fetch the dictionary words
-            const url = "path/to/your/dictionary.txt";
+            const url = "dictionary.txt";
 
             const xhr = new XMLHttpRequest();
             xhr.open("GET", url, false);
@@ -107,15 +107,16 @@
             document.getElementById("word1Result").textContent = word1;
             document.getElementById("score1Result").textContent = score1;
             document.getElementById("valid1Result").textContent = score1 === 0 ? "Invalid" : "Valid";
-            document.getElementById("message1Result").textContent = score1 === 0 ? "Invalid word" : "";
+            document.getElementById("message1Result").textContent = score1 === 0 ? "INVALID WORD!" : (score1 > 0 ? "You scored!" : "");
 
             document.getElementById("word2Result").textContent = word2;
             document.getElementById("score2Result").textContent = score2;
             document.getElementById("valid2Result").textContent = score2 === 0 ? "Invalid" : "Valid";
-            document.getElementById("message2Result").textContent = score2 === 0 ? "Invalid word" : "";
+            document.getElementById("message2Result").textContent = score2 === 0 ? "INVALID WORD!" : (score2 > 0 ? "Way to go, every point counts!" : "");
 
             document.getElementById("result").style.display = "block";
         }
+
 
         function resetForm() {
             document.getElementById("result").style.display = "none";
